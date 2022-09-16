@@ -15,7 +15,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         data = request.data
         new_article = Article.objects.create(
-            type=Type.objects.get(id=data["type"]),
+            type=Type.objects.get(type_name=data["type_name"]),
             article_name=data["article_name"],
             short_desc=data["short_desc"],
             full_desc=data["full_desc"]
